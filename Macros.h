@@ -64,5 +64,6 @@ static inline NSDictionary *DictionaryWithIDArray(id *array, NSUInteger count) {
 #define X(view) view.frame.origin.x
 #define Y(view) view.frame.origin.y
 #define BOTTOM(view) view.frame.origin.y + view.frame.size.height 
+#define RIGHT(view) view.frame.origin.x + view.frame.size.width 
 
 #define INDEX_PATH(a,b) [NSIndexPath indexPathWithIndexes:(NSUInteger[]){a,b} length:2]
