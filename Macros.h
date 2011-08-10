@@ -18,12 +18,16 @@ static inline NSString *StringFromObject(id object) {
 	}
 }
 
+#pragma mark -
+#pragma mark UIColor
+
 // example usage: UIColorFromHex(0x9daa76)
 #define UIColorFromHex(hexValue) [UIColor colorWithRed:((float)((hexValue & 0xFF0000) >> 16))/255.0 green:((float)((hexValue & 0xFF00) >> 8))/255.0 blue:((float)(hexValue & 0xFF))/255.0 alpha:1.0]
 #define UIColorFromRGBA(r,g,b,a) [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:a]
 #define UIColorFromRGB(r,g,b) UIColorFromRGBA(r,g,b,1.0)
 
-#define LOG(fmt, ...) NSLog(@"%s:%d (%s): " fmt, __FILE__, __LINE__, __func__, ## __VA_ARGS__)
+#pragma mark -
+#pragma mark Collections
 
 #define IDARRAY(...) (id []){ __VA_ARGS__ }
 #define IDCOUNT(...) (sizeof(IDARRAY(__VA_ARGS__)) / sizeof(id))
@@ -47,6 +51,11 @@ static inline NSDictionary *DictionaryWithIDArray(id *array, NSUInteger count) {
 #define POINTERIZE(x) ((__typeof__(x) []){ x })
 #define NSVALUE(x) [NSValue valueWithBytes: POINTERIZE(x) objCType: @encode(__typeof__(x))]
 
+#pragma mark -
+#pragma mark Logging
+
+#define LOG(fmt, ...) NSLog(@"%s:%d (%s): " fmt, __FILE__, __LINE__, __func__, ## __VA_ARGS__)
+
 #ifdef DEBUG
     #define INFO(fmt, ...) LOG(fmt, ## __VA_ARGS__)
 #else
@@ -56,8 +65,14 @@ static inline NSDictionary *DictionaryWithIDArray(id *array, NSUInteger count) {
 
 #define ERROR(fmt, ...) LOG(fmt, ## __VA_ARGS__)
 
+#pragma mark -
+#pragma mark NSNumber
+
 #define NUM_INT(int) [NSNumber numberWithInt:int]
 #define NUM_FLOAT(float) [NSNumber numberWithFloat:float]
+
+#pragma mark -
+#pragma mark Frame Geometry
 
 #define CENTER_VERTICALLY(parent,child) floor((parent.frame.size.height - child.frame.size.height) / 2)
 #define CENTER_HORIZONTALLY(parent,child) floor((parent.frame.size.width - child.frame.size.width) / 2)
@@ -69,5 +84,8 @@ static inline NSDictionary *DictionaryWithIDArray(id *array, NSUInteger count) {
 #define TOP(view) view.frame.origin.y
 #define BOTTOM(view) view.frame.origin.y + view.frame.size.height 
 #define RIGHT(view) view.frame.origin.x + view.frame.size.width 
+
+#pragma mark -
+#pragma mark IndexPath
 
 #define INDEX_PATH(a,b) [NSIndexPath indexPathWithIndexes:(NSUInteger[]){a,b} length:2]
