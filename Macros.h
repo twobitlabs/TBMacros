@@ -59,8 +59,8 @@ static inline NSDictionary *DictionaryWithIDArray(id *array, NSUInteger count) {
 #define NUM_INT(int) [NSNumber numberWithInt:int]
 #define NUM_FLOAT(float) [NSNumber numberWithFloat:float]
 
-#define CENTER_VERTICALLY(parent,child) (parent.frame.size.height - child.frame.size.height) / 2
-#define CENTER_HORIZONTALLY(parent,child) (parent.frame.size.width - child.frame.size.width) / 2
+#define CENTER_VERTICALLY(parent,child) floor((parent.frame.size.height - child.frame.size.height) / 2)
+#define CENTER_HORIZONTALLY(parent,child) floor((parent.frame.size.width - child.frame.size.width) / 2)
 #define WIDTH(view) view.frame.size.width
 #define HEIGHT(view) view.frame.size.height
 #define X(view) view.frame.origin.x
