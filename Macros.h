@@ -76,14 +76,15 @@ static inline NSDictionary *DictionaryWithIDArray(id *array, NSUInteger count) {
 
 #define CENTER_VERTICALLY(parent,child) floor((parent.frame.size.height - child.frame.size.height) / 2)
 #define CENTER_HORIZONTALLY(parent,child) floor((parent.frame.size.width - child.frame.size.width) / 2)
+#define CENTER_IN_PARENT(parent,width,height) CGSizeMake(floor((parent.frame.size.width - width) / 2),floor((parent.frame.size.height - height) / 2))
 #define WIDTH(view) view.frame.size.width
 #define HEIGHT(view) view.frame.size.height
 #define X(view) view.frame.origin.x
 #define Y(view) view.frame.origin.y
 #define LEFT(view) view.frame.origin.x
 #define TOP(view) view.frame.origin.y
-#define BOTTOM(view) view.frame.origin.y + view.frame.size.height 
-#define RIGHT(view) view.frame.origin.x + view.frame.size.width 
+#define BOTTOM(view) (view.frame.origin.y + view.frame.size.height) 
+#define RIGHT(view) (view.frame.origin.x + view.frame.size.width) 
 
 #pragma mark -
 #pragma mark IndexPath
