@@ -1,3 +1,4 @@
+// Adapted from Will Shipley http://blog.wilshipley.com/2005/10/pimp-my-code-interlude-free-code.html
 static inline BOOL IsEmpty(id thing) {
     return thing == nil || [thing isEqual:[NSNull null]]
         || ([thing respondsToSelector:@selector(length)]
