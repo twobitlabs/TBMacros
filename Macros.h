@@ -71,6 +71,7 @@ static inline NSDictionary *DictionaryWithIDArray(id *array, NSUInteger count) {
 
 #define NUM_INT(int) [NSNumber numberWithInt:int]
 #define NUM_FLOAT(float) [NSNumber numberWithFloat:float]
+#define NUM_BOOL(bool) [NSNumber numberWithBool:bool]
 
 #pragma mark -
 #pragma mark Frame Geometry
