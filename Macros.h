@@ -97,3 +97,9 @@ static inline NSDictionary *DictionaryWithIDArray(id *array, NSUInteger count) {
 #pragma mark IndexPath
 
 #define INDEX_PATH(a,b) [NSIndexPath indexPathWithIndexes:(NSUInteger[]){a,b} length:2]
+
+#pragma mark -
+#pragma mark Device type
+
+#define DEVICE_IS_IPAD UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad
+
