@@ -104,3 +104,7 @@ static inline NSDictionary *DictionaryWithIDArray(id *array, NSUInteger count) {
 #define DEVICE_IS_IPAD UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad
 #define DEVICE_IS_IPHONE UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone
 
+#pragma mark -
+#pragma mark Transforms
+
+#define DEGREES_TO_RADIANS(degrees) degrees * M_PI / 180
