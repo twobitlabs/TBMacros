@@ -99,10 +99,13 @@ static inline NSDictionary *DictionaryWithIDArray(id *array, NSUInteger count) {
 #define INDEX_PATH(a,b) [NSIndexPath indexPathWithIndexes:(NSUInteger[]){a,b} length:2]
 
 #pragma mark -
-#pragma mark Device type
+#pragma mark Device type. 
+// Corresponds to "Targeted device family" in project settings
+// Universal apps will return true for whichever device they're on. 
+// iPhone apps will return true for iPhone even if run on iPad.
 
-#define DEVICE_IS_IPAD UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad
-#define DEVICE_IS_IPHONE UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone
+#define TARGETED_DEVICE_IS_IPAD UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad
+#define TARGETED_DEVICE_IS_IPHONE UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone
 
 #pragma mark -
 #pragma mark Transforms
