@@ -19,6 +19,9 @@ static inline NSString *StringFromObject(id object) {
 	}
 }
 
+#define NOT_ANIMATED NO
+#define ANIMATED YES
+
 #pragma mark -
 #pragma mark UIColor
 
