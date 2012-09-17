@@ -121,6 +121,7 @@ static inline NSDictionary *DictionaryWithIDArray(id *array, NSUInteger count) {
 
 #define TARGETED_DEVICE_IS_IPAD UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad
 #define TARGETED_DEVICE_IS_IPHONE UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone
+#define TARGETED_DEVICE_IS_IPHONE_568 TARGETED_DEVICE_IS_IPHONE && [[UIScreen mainScreen] bounds].size.height > 500
 
 #pragma mark -
 #pragma mark Transforms
