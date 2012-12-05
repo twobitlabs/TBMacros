@@ -1,3 +1,21 @@
+#import <mach/mach_time.h>  // for mach_absolute_time() and friends
+                            // adapted from http://blog.bignerdranch.com/316-a-timing-utility/
+static inline void TimeThisBlock (void (^block)(void), NSString *message) {
+    mach_timebase_info_data_t info;
+    if (mach_timebase_info(&info) != KERN_SUCCESS) {
+        block();
+        return;
+    };
+    
+    uint64_t start = mach_absolute_time ();
+    block ();
+    uint64_t end = mach_absolute_time ();
+    uint64_t elapsed = end - start;
+    
+    uint64_t nanos = elapsed * info.numer / info.denom;
+    NSLog(@"Took %f seconds to %@", (CGFloat)nanos / NSEC_PER_SEC, message);
+}
+
 // Adapted from Will Shipley http://blog.wilshipley.com/2005/10/pimp-my-code-interlude-free-code.html
 static inline BOOL IsEmpty(id thing) {
     return thing == nil || [thing isEqual:[NSNull null]]
