@@ -99,6 +99,7 @@ static inline NSDictionary *DictionaryWithIDArray(id *array, NSUInteger count) {
 #endif
 
 #define ERROR(fmt, ...) LOG(fmt, ## __VA_ARGS__)
+#define TRACE(fmt, ...) LOG(fmt, ## __VA_ARGS__)
 
 #pragma mark -
 #pragma mark NSNumber
