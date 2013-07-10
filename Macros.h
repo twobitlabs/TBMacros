@@ -117,6 +117,9 @@ static inline NSDictionary *DictionaryWithIDArray(id *array, NSUInteger count) {
 
 #define INDEX_PATH(a,b) [NSIndexPath indexPathWithIndexes:(NSUInteger[]){a,b} length:2]
 
+#define ALWAYS_TRUE YES ||
+#define NEVER_TRUE NO &&
+
 #pragma mark -
 #pragma mark Device type. 
 // Corresponds to "Targeted device family" in project settings
