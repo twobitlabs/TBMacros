@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name = 'TBMacros'
-  s.version = '0.1'
+  s.version = '0.2'
   s.platform = :ios, '4.0'
   s.license = 'MIT'
   s.summary = 'A collection of Objective-C syntatic sugar'
