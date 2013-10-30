@@ -149,6 +149,6 @@ static inline void TimeThisBlock (void (^block)(void), NSString *message) {
     uint64_t elapsed = end - start;
     
     uint64_t nanos = elapsed * info.numer / info.denom;
-    INFO(@"Took %f seconds to %@", (CGFloat)nanos / NSEC_PER_SEC, message);
+    LOG(@"Took %f seconds to %@", (CGFloat)nanos / NSEC_PER_SEC, message);
 }
 
