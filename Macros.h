@@ -96,22 +96,22 @@ static inline NSDictionary *DictionaryWithIDArray(id *array, NSUInteger count) {
 #pragma mark -
 #pragma mark Frame Geometry
 
-#define CENTER_VERTICALLY(parent,child) floor((parent.frame.size.height - child.frame.size.height) / 2)
-#define CENTER_HORIZONTALLY(parent,child) floor((parent.frame.size.width - child.frame.size.width) / 2)
+#define CENTER_VERTICALLY(parent,child) floor((CGRectGetHeight(parent.frame) - CGRectGetHeight(child.frame)) / 2)
+#define CENTER_HORIZONTALLY(parent,child) floor((CGRectGetWidth(parent.frame) - CGRectGetWidth(child.frame)) / 2)
 
 // example: [[UIView alloc] initWithFrame:(CGRect){CENTER_IN_PARENT(parentView,500,500),CGSizeMake(500,500)}];
-#define CENTER_IN_PARENT(parent,childWidth,childHeight) CGPointMake(floor((parent.frame.size.width - childWidth) / 2),floor((parent.frame.size.height - childHeight) / 2))
-#define CENTER_IN_PARENT_X(parent,childWidth) floor((parent.frame.size.width - childWidth) / 2)
-#define CENTER_IN_PARENT_Y(parent,childHeight) floor((parent.frame.size.height - childHeight) / 2)
+#define CENTER_IN_PARENT(parent,childWidth,childHeight) CGPointMake(floor((CGRectGetWidth(parent.frame) - childWidth) / 2),floor((CGRectGetHeight(parent.frame) - childHeight) / 2))
+#define CENTER_IN_PARENT_X(parent,childWidth) floor((CGRectGetWidth(parent.frame) - childWidth) / 2)
+#define CENTER_IN_PARENT_Y(parent,childHeight) floor((CGRectGetHeight(parent.frame) - childHeight) / 2)
 
-#define WIDTH(view) view.frame.size.width
-#define HEIGHT(view) view.frame.size.height
-#define X(view) view.frame.origin.x
-#define Y(view) view.frame.origin.y
-#define LEFT(view) view.frame.origin.x
-#define TOP(view) view.frame.origin.y
-#define BOTTOM(view) (view.frame.origin.y + view.frame.size.height) 
-#define RIGHT(view) (view.frame.origin.x + view.frame.size.width) 
+#define WIDTH(view) CGRectGetWidth(view.frame)
+#define HEIGHT(view) CGRectGetHeight(view.frame)
+#define X(view) CGRectGetMinX(view.frame)
+#define Y(view) CGRectGetMinY(view.frame)
+#define LEFT(view) CGRectGetMinX(view.frame)
+#define TOP(view) CGRectGetMinY(view.frame)
+#define BOTTOM(view) CGRectGetMaxY(view.frame)
+#define RIGHT(view) CGRectGetMaxX(view.frame)
 
 #pragma mark -
 #pragma mark IndexPath
