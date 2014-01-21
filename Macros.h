@@ -91,7 +91,8 @@ static inline NSDictionary *DictionaryWithIDArray(id *array, NSUInteger count) {
 #define ERROR(fmt, ...) LOG(fmt, ## __VA_ARGS__)
 #define TRACE(fmt, ...) LOG(fmt, ## __VA_ARGS__)
 
-#define METHOD_NOT_IMPLEMENTED()  @throw [NSException exceptionWithName:NSInvalidArgumentException reason:[NSString stringWithFormat:@"You must override %@ in a subclass", NSStringFromSelector(_cmd)] userInfo:nil]
+#define METHOD_NOT_IMPLEMENTED() NSAssert(NO,
+@"You must override %@ in a subclass", NSStringFromSelector(_cmd))
 
 #pragma mark -
 #pragma mark NSNumber
