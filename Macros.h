@@ -72,6 +72,11 @@ static inline NSDictionary *DictionaryWithIDArray(id *array, NSUInteger count) {
 #define NSVALUE(x) [NSValue valueWithBytes: POINTERIZE(x) objCType: @encode(__typeof__(x))]
 
 #pragma mark -
+#pragma mark Blocks
+
+#define BLOCK_SAFE_RUN(block, ...) block ? block(__VA_ARGS__) : nil
+
+#pragma mark -
 #pragma mark Logging
 
 #define LOG(fmt, ...) NSLog(@"%s:%d (%s): " fmt, __FILE__, __LINE__, __func__, ## __VA_ARGS__)
@@ -85,6 +90,9 @@ static inline NSDictionary *DictionaryWithIDArray(id *array, NSUInteger count) {
 
 #define ERROR(fmt, ...) LOG(fmt, ## __VA_ARGS__)
 #define TRACE(fmt, ...) LOG(fmt, ## __VA_ARGS__)
+
+#define METHOD_NOT_IMPLEMENTED() NSAssert(NO,
+@"You must override %@ in a subclass", NSStringFromSelector(_cmd))
 
 #pragma mark -
 #pragma mark NSNumber
