@@ -79,7 +79,7 @@ static inline NSDictionary *DictionaryWithIDArray(id *array, NSUInteger count) {
 #pragma mark -
 #pragma mark Logging
 
-#define LOG(fmt, ...) NSLog(@"%s:%d (%s): " fmt, __FILE__, __LINE__, __func__, ## __VA_ARGS__)
+#define LOG(fmt, ...) NSLog(@"%s: " fmt, __PRETTY_FUNCTION__, ## __VA_ARGS__)
 
 #ifdef DEBUG
     #define INFO(fmt, ...) LOG(fmt, ## __VA_ARGS__)
