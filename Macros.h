@@ -1,6 +1,8 @@
 #import <mach/mach_time.h>  // for mach_absolute_time() and friends
                             // adapted from http://blog.bignerdranch.com/316-a-timing-utility/
 
+#import <CoreGraphics/CGBase.h>
+
 // Adapted from Will Shipley http://blog.wilshipley.com/2005/10/pimp-my-code-interlude-free-code.html
 static inline BOOL IsEmpty(id thing) {
     return thing == nil || [thing isEqual:[NSNull null]]
