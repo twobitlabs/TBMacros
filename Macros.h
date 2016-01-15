@@ -74,6 +74,11 @@ static inline NSDictionary *DictionaryWithIDArray(id *array, NSUInteger count) {
 #define NSVALUE(x) [NSValue valueWithBytes: POINTERIZE(x) objCType: @encode(__typeof__(x))]
 
 #pragma mark -
+#pragma mark weakSelf
+
+#define WS(weakSelf) __weak __typeof(&*self)weakSelf = self;
+
+#pragma mark -
 #pragma mark Blocks
 
 #define BLOCK_SAFE_RUN(block, ...) block ? block(__VA_ARGS__) : nil
